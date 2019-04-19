@@ -1,10 +1,11 @@
-<div class="card" style="max-width: 18rem;">
+<div class="card border-0" style="max-width: 18rem;">
     {% if instance.image %}
         <img src="{{ instance.image.url }}" class="card-img-top" alt="{{ instance.title }}">
     {% endif %}
     <div class="card-body">
       <h5 class="card-title">{{ instance.title }}</h5>
       <p class="card-text">{{ instance.description }}</p>
+      <p class="card-text">{{ instance.price }}</p>
     </div>
     <div class="card-footer">
       <a href="{{ obj.get_absolute_url }}" class="btn btn-default" style="background-color: bisque;">View</a>

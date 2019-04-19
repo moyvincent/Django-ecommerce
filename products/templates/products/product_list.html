@@ -5,7 +5,7 @@
         <h1>Product List</h1>
         <div class = "row">
             {% for obj in object_list %}
-                <div class = "col-2">
+                <div class = "col card-group">
                     {% include "products/snippets/cards.html" with instance=obj %}
                 </div>
             {% endfor %}
