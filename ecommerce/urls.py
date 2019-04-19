@@ -18,18 +18,26 @@ from django.conf.urls.static import static
 
 
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, re_path
 from ecommerce.views import home_page, about_page, contact_page, login_page, register_page
-from products.views import product_list_view
+from products.views import (
+    product_list_view,
+    product_detail_view,
+    product_featured_detail_view,
+    product_featured_list_view
+)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', home_page),
-    path('contact', contact_page),
-    path('about', about_page),
-    path('login', login_page),
-    path('register', register_page),
-    path('list', product_list_view),
+    path('', home_page, name='home'),
+    path('contact', contact_page, name='contact'),
+    path('about', about_page, name='about'),
+    path('login', login_page, name='login'),
+    path('register', register_page, name='register'),
+    path('list', product_list_view, name='products'),
+    path('featured', product_featured_list_view),
+    re_path(r'^detail/(?P<slug>[\w-]+)/$', product_detail_view),
+    re_path(r'^featured/(?P<pk>[\d+])/$', product_featured_detail_view),
 ]
 
 

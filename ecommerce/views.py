@@ -58,6 +58,8 @@ def login_page(request):
 
 
 User = get_user_model()
+
+
 def register_page(request):
     form = RegisterForm(request.POST or None)
     context = {

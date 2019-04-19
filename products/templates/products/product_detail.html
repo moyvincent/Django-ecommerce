@@ -2,8 +2,13 @@
 {% load static %}
 {% block content %}
     <div class="text-center">
-        <h1>CONTACT</h1>
-        <p>{{ title }}</p>
+        <h1>Product Detail</h1>
+            {% if object.image %}
+                <img alt="Laptop" class="img-fluid" src="{{ object.image.url }}"/><br>
+            {% endif %}
+            {{ object.title }}<br>
+            {{ object.description }}<br>
+        <p></p>
     </div>
     <div class = "container">
         <div class = "row">
@@ -19,8 +24,7 @@
     {#                    <button type="submit" class="btn btn-default" style="background-color: bisque;">Submit</button>#}
     {#                </form>#}
             </div>
-
         </div>
-
     </div>
+
 {% endblock %}
