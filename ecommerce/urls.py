@@ -26,6 +26,7 @@ from products.views import (
     product_featured_detail_view,
     product_featured_list_view
 )
+from search.views import search_product_list_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -35,6 +36,7 @@ urlpatterns = [
     path('login', login_page, name='login'),
     path('register', register_page, name='register'),
     path('list', product_list_view, name='products'),
+    path('search', search_product_list_view, name='search'),
     path('featured', product_featured_list_view),
     re_path(r'^detail/(?P<slug>[\w-]+)/$', product_detail_view),
     re_path(r'^featured/(?P<pk>[\d+])/$', product_featured_detail_view),
