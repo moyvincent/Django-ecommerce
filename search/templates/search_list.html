@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+    <div class="container">
+        <h1>Product List</h1>
+        <p><i>search result for <b>{{ request.GET.q }}</b></i></p>
+        <hr>
+        <div class = "row">
+            {% for obj in object_list %}
+                <div class = "col card-group">
+                    {% include "products/snippets/cards.html" with instance=obj %}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
