@@ -41,5 +41,3 @@ def product_featured_list_view(request, *args, **kwargs,):
         "object_list": queryset
     }
     return render(request, "products/product_featured_list.html", context)
-
-
