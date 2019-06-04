@@ -1,10 +1,11 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 from carts.models import Cart
 
 
 def cart_home(request):
-    cart_id = request.session.get("card_id", None)
+    cart_obj = Cart.objects.new_or_get(request)
+    """ cart_id = request.session.get("card_id", None)
     qs = Cart.objects.all()
     if qs.count() == 1:
         cart_obj = qs.first()
@@ -13,5 +14,9 @@ def cart_home(request):
             cart_obj.save()
     else:
         cart_obj = Cart.objects.new(user=request.user)
-        request.session['cart_id'] = cart_obj.id
+        request.session['cart_id'] = cart_obj.id """
     return render(request, 'carts/home.html', {})
+
+
+
+
