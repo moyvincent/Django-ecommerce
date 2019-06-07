@@ -1,9 +1,10 @@
-{% url 'home' as home_url%}
-{% url 'products' as products_url%}
-{% url 'contact' as contact_url%}
-{% url 'about' as about_url%}
-{% url 'login' as login_url%}
-{% url 'register' as register_url%}
+{% url 'home' as home_url %}
+{% url 'products' as products_url %}
+{% url 'contact' as contact_url %}
+{% url 'about' as about_url %}
+{% url 'login' as login_url %}
+{% url 'register' as register_url %}
+{% url 'cart:home' as cart_url %}
 {% load static %}
 {% block nav %}
 
@@ -39,6 +40,9 @@
               <a class="nav-link" tabindex="-1" href="{{ login_url }}">Login</a>
             </li>
           {% endif %}
+          <li class="nav-item {% if request.path == cart_url %}active{% endif %}">
+              <a class="nav-link" tabindex="-1" href="{{ cart_url }}">{{ request.session.cart_item }} <i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
+            </li>
 
         </ul>
       </div>
