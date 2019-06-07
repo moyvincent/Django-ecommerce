@@ -6,8 +6,8 @@ from django.db.models.signals import post_save, pre_save, m2m_changed
 
 class CartManager(models.Manager):
     def new_or_get(self, request):
-        cart_id = request.session.get("card_id", None)
-        qs = Cart.objects.all().filter(id=cart_id)
+        cart_id = request.session.get("cart_id", None)
+        qs = self.get_queryset().filter(id=cart_id)
         if qs.count() == 1:
             new_obj = False
             cart_obj = qs.first()
@@ -18,6 +18,7 @@ class CartManager(models.Manager):
             cart_obj = Cart.objects.new(user=request.user)
             new_obj = True
             request.session['cart_id'] = cart_obj.id
+            cart_obj.save()
         return cart_obj, new_obj
 
     def new(self, user=None):

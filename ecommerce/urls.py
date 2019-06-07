@@ -19,8 +19,8 @@ from django.conf.urls.static import static
 
 from django.contrib import admin
 from django.urls import path, re_path
+from django.conf.urls import include, url
 
-from carts.views import cart_home
 from ecommerce.views import home_page, about_page, contact_page, login_page, register_page
 from products.views import (
     product_list_view,
@@ -36,7 +36,7 @@ urlpatterns = [
     path('contact', contact_page, name='contact'),
     path('about', about_page, name='about'),
     path('login', login_page, name='login'),
-    path('cart', cart_home, name='cart'),
+    path('cart/', include(("carts.urls", 'carts'), namespace='cart')),
     path('register', register_page, name='register'),
     path('list', product_list_view, name='products'),
     path('search', search_product_list_view, name='search'),
