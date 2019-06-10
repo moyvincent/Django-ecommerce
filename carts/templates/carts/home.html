@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
-    <h4>cart</h4>
+    <h4 style="margin-left: 10px;">{{ request.session.cart_item }} <i class="fa fa-shopping-cart"></i></h4>
     {% if cart.product.exists %}
     <table class="table">
             <thead>
