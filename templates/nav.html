@@ -29,14 +29,14 @@
             <a class="nav-link" href="{{ about_url }}" tabindex="-1">About</a>
           </li>
           {% if user.is_authenticated %}
-            <li class="nav-item {% if request.path == about_url %}active{% endif %}">
+            <li class="nav-item {% if request.path == login_url %}active{% endif %}">
               <a class="nav-link" tabindex="-1" href="{{ login_url }}">Logout</a>
             </li>
-            <li class="nav-item {% if request.path == about_url %}active{% endif %}">
+            <li class="nav-item {% if request.path == register_url %}active{% endif %}">
               <a class="nav-link" tabindex="-1" href="{{ register_url }}">Register</a>
             </li>
           {% else %}
-            <li class="nav-item {% if request.path == about_url %}active{% endif %}">
+            <li class="nav-item {% if request.path == login_url %}active{% endif %}">
               <a class="nav-link" tabindex="-1" href="{{ login_url }}">Login</a>
             </li>
           {% endif %}

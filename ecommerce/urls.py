@@ -20,8 +20,8 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, re_path
 from django.conf.urls import include, url
-
-from ecommerce.views import home_page, about_page, contact_page, login_page, register_page
+from accounts.views import login_page, register_page
+from ecommerce.views import home_page, about_page, contact_page 
 from products.views import (
     product_list_view,
     product_detail_view,
